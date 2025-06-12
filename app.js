@@ -17,7 +17,6 @@ function getAnimal() {
 
 const app = express();
 
-
 app.get('/', function(req, res){
   const [animal_name, sound] = getAnimal();
   res.writeHead(200, { 'Content-Type': 'text/html' });
