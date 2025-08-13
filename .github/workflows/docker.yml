@@ -8,10 +8,6 @@ on:
 jobs:
   build-and-push:
     runs-on: ubuntu-latest
-    permissions:
-      contents: read
-      packages: write
-      
     steps:
       -
         name: Checkout
@@ -37,11 +33,11 @@ jobs:
           password: ${{ secrets.GHCR_TOKEN }}
       -
         name: Build and push
-        uses: docker/build-push-action@v6
+        uses: docker/build-push-action@v5
         with:
           context: .
           file: ./Dockerfile
           push: true
           tags: |
-            MalteDs/animal-farm-nodejs:latest
-            ghcr.io/MalteDs/animal-farm-nodejs:latest
+            malteds/animal-farm-nodejs:latest
+            ghcr.io/malteds/animal-farm-nodejs:latest
